@@ -1,10 +1,6 @@
 from selenium import webdriver
 
-#driver = webdriver.Remote("http://18.219.3.90:4444/wd/hub", "firefox")
-
-driver = webdriver.Remote(
-   command_executor='http://18.219.3.90:4444/wd/hub',
-   desired_capabilities={'browserName': 'firefox', 'javascriptEnabled': True})
+driver = webdriver.Chrome(executable_path='/Users/rafal/Downloads/chromedriver')
 
 
 driver.get("https://zzysh.me/uk/en/shop")
