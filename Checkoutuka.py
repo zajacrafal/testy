@@ -1,6 +1,10 @@
 from selenium import webdriver
 
-driver = webdriver.Chrome(executable_path='/Users/rafal/Downloads/chromedriver')
+desired_cap = {'browser': 'Chrome', 'browser_version': '62.0', 'os': 'Windows', 'os_version': '10', 'resolution': '1920x1080'}
+
+driver = webdriver.Remote(
+   command_executor='http://18.219.3.90:4444/wd/hub',
+   desired_capabilities=desired_cap)
 
 
 driver.get("https://zzysh.me/uk/en/shop")
