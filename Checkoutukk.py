@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 
 from selenium import webdriver
 
-selenium_grid_url = "http://127.0.0.1:4444/wd/hub"
+selenium_grid_url = "http://localhost:4444/wd/hub"
 
 # Create a desired capabilities object as a starting point.
 capabilities = webdriver.DesiredCapabilities.CHROME.copy()
