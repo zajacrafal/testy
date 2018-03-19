@@ -3,7 +3,7 @@ from selenium import webdriver
 desired_cap = {'browser': 'Chrome', 'browser_version': '62.0', 'os': 'Windows', 'os_version': '10', 'resolution': '1920x1080'}
 
 driver = webdriver.Remote(
-   command_executor='localhost',
+   command_executor='http://localhost:4444',
    desired_capabilities=desired_cap)
 
 
