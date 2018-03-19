@@ -6,13 +6,13 @@ selenium_grid_url = "http://127.0.0.1:4444/wd/hub"
 capabilities = webdriver.DesiredCapabilities.CHROME.copy()
 capabilities["browser"]="Chrome"
 
-chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument('--no-sandbox')
-chrome = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options = chrome_options)
-
 # Instantiate an instance of Remote WebDriver with the desired capabilities.
 driver = webdriver.Remote(desired_capabilities=capabilities,
                          command_executor=selenium_grid_url)
+
+driver_options = webdriver.ChromeOptions()
+driver_options.add_argument('--no-sandbox')
+driver = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options = chrome_options)
 
 driver.get("https://zzysh.me/uk/en/shop")
 if not "Products" in driver.title:
