@@ -1,8 +1,8 @@
 from selenium import webdriver
 
-desired_cap = {'browser': 'Chrome', 'browser_version': '62.0', 'os': 'Windows', 'os_version': '10', 'resolution': '1920x1080'}
+test1 = {'browser_version': '62.0', 'os_version': '10', 'resolution': '1920x1080'}
 
-driver = webdriver.Remote(command_executor='http://localhost:4444', desired_capabilities = desired_cap)
+driver = webdriver.Remote(command_executor='http://localhost:4444', desired_capabilities = test1)
    
 
 
