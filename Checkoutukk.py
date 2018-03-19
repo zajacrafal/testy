@@ -1,10 +1,14 @@
 from selenium import webdriver
 
-#driver = webdriver.Remote("http://18.219.3.90:4444/wd/hub", "firefox")
+selenium_grid_url = "http://127.0.0.1:4444/wd/hub"
 
-driver = webdriver.Remote(
-   command_executor='http://18.219.3.90:4444/wd/hub',
-   desired_capabilities={'browserName': 'firefox', 'javascriptEnabled': True})
+# Create a desired capabilities object as a starting point.
+capabilities = webdriver.DesiredCapabilities.CHROME.copy()
+capabilities["browser"]="Chrome"
+
+# Instantiate an instance of Remote WebDriver with the desired capabilities.
+driver = webdriver.Remote(desired_capabilities=capabilities,
+command_executor=selenium_grid_url)
 
 
 driver.get("https://zzysh.me/uk/en/shop")
