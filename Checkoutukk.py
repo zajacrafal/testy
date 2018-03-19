@@ -4,8 +4,18 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
+selenium_grid_url = "http://127.0.0.1:4444/wd/hub"
 
+# Create a desired capabilities object as a starting point.
+capabilities = webdriver.DesiredCapabilities.CHROME.copy()
+capabilities["browser"]="Chrome"
+ 
+ 
+# Instantiate an instance of Remote WebDriver with the desired capabilities.
 driver = webdriver.Chrome(executable_path='/Users/rafal/Downloads/chromedriver')
+driver = webdriver.Remote(desired_capabilities=capabilities,
+command_executor=selenium_grid_url)
+
 
 
 driver.get("https://zzysh.me/uk/en/shop")
