@@ -1,10 +1,14 @@
 from selenium import webdriver
 
-test1 = {'browser_version': '62.0', 'os_version': '10', 'resolution': '1920x1080'}
+selenium_grid_url = "http://127.0.0.1:4444/wd/hub"
 
-driver = webdriver.Remote(command_executor='http://localhost:4444', desired_capabilities = test1)
-   
+# Create a desired capabilities object as a starting point.
+capabilities = webdriver.DesiredCapabilities.CHROME.copy()
+capabilities["browser"]="Chrome"
 
+# Instantiate an instance of Remote WebDriver with the desired capabilities.
+driver = webdriver.Remote(desired_capabilities=capabilities,
+                         command_executor=selenium_grid_url)
 
 driver.get("https://zzysh.me/uk/en/shop")
 if not "Products" in driver.title:
