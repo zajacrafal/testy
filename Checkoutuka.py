@@ -2,6 +2,10 @@ from selenium import webdriver
 
 selenium_grid_url = "http://127.0.0.1:4444/wd/hub"
 
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument('--no-sandbox')
+chrome = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=chrome_options)
+
 # Create a desired capabilities object as a starting point.
 capabilities = webdriver.DesiredCapabilities.CHROME.copy()
 capabilities["browser"]="Chrome"
