@@ -36,9 +36,9 @@ tablica_ofert = []
 while True:
    try:
        # znalezienie naglowka oferty
-       #selector = driver.find_element_by_css_selector('div.row.job-offers__wrapper > div:nth-child('+a+') > div > h2')
+       selector = driver.find_element_by_css_selector('div.row.job-offers__wrapper > div:nth-child('+a+') > div > h2')
        czy_ostatni = selector.get_attribute('innerText')
-       # sprawdzenie czy naglówek nie jest ostatnim elementem
+       #sprawdzenie czy naglówek nie jest ostatnim elementem
        if (czy_ostatni == 'No match for you?'):
            break
        button = driver.find_element_by_css_selector('div.row.job-offers__wrapper > div:nth-child('+a+') > div > a')
@@ -47,15 +47,15 @@ while True:
        print('sprawdzam ofertę', selector.get_attribute('innerText'))
        tablica_ofert.append(str(selector.get_attribute('innerText')))
        time.sleep(1)
-       #button.click()
+       button.click()
        time.sleep(1)
        naglowek = driver.find_element_by_css_selector('div.col-sm-12.col-md-8.col-lg-9 > header > h1').get_attribute('innerText')
        if (str(naglowek) == tablica_ofert[b-1]):
            print('naglowki zgodne')
-       #else:
+       else:
            print('niezgodne naglowki w ofercie', tablica_ofert[b-1])
            break
-       #try:
+       try:
            driver.find_element_by_css_selector('div.col-sm-12.col-md-4.col-lg-3 > div > a').location_once_scrolled_into_view
            driver.execute_script("window.scrollBy(0,150);")
            driver.find_element_by_css_selector('div.col-sm-12.col-md-4.col-lg-3 > div > a').click()
