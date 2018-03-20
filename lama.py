@@ -86,4 +86,4 @@ while True:
        print('Błąd sprawdzania')
        break
 
-driver.quit() driver.quit()
+driver.quit()
