@@ -1,5 +1,7 @@
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.chrome.options import Options
+
 
 import time
 
@@ -13,8 +15,10 @@ capabilities["browser"]="Chrome"
 driver = webdriver.Remote(desired_capabilities=capabilities,
                          command_executor=selenium_grid_url)
 
+driver.set_window_size(1920, 1080)
 
-driver.get("http://www.lama-media.com/career")
+
+driver.get("https://www.lama-media.com/career")
 driver.implicitly_wait(5)
 
 if "Lama Media" not in driver.title:
@@ -76,7 +80,8 @@ while True:
            print('Nieaktywny button aplikacji w ofercie', tablica_ofert[b-1])
            break
 
-       driver.find_element_by_css_selector('div.col-sm-12.col-md-8.col-lg-9 > div > a').click()
+       driver.find_element_by_xpath('/html/body/main/section[2]/div/div/div[1]/div/a').click()
+
        time.sleep(1)
        b += 1
        a = str(b)
