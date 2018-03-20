@@ -36,7 +36,7 @@ tablica_ofert = []
 while True:
    try:
        # znalezienie naglowka oferty
-       selector = driver.find_element_by_css_selector('div.row.job-offers__wrapper > div:nth-child('+a+') > div > h2')
+       #selector = driver.find_element_by_css_selector('div.row.job-offers__wrapper > div:nth-child('+a+') > div > h2')
        czy_ostatni = selector.get_attribute('innerText')
        # sprawdzenie czy naglówek nie jest ostatnim elementem
        if (czy_ostatni == 'No match for you?'):
