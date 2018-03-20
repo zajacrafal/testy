@@ -15,7 +15,6 @@ driver = webdriver.Remote(desired_capabilities=capabilities,
 
 
 driver.get("http://www.lama-media.com/career")
-driver.maximize_window()
 driver.implicitly_wait(5)
 
 if "Lama Media" not in driver.title:
