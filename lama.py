@@ -15,7 +15,7 @@ capabilities["browser"]="Chrome"
 driver = webdriver.Remote(desired_capabilities=capabilities,
                          command_executor=selenium_grid_url)
 
-#driver.set_window_size(1920, 1080)
+driver.set_window_size(1920, 1080)
 
 
 driver.get("https://www.lama-media.com/career")
@@ -47,15 +47,15 @@ while True:
        print('sprawdzam ofertę', selector.get_attribute('innerText'))
        tablica_ofert.append(str(selector.get_attribute('innerText')))
        time.sleep(1)
-       button.click()
+       #button.click()
        time.sleep(1)
        naglowek = driver.find_element_by_css_selector('div.col-sm-12.col-md-8.col-lg-9 > header > h1').get_attribute('innerText')
        if (str(naglowek) == tablica_ofert[b-1]):
            print('naglowki zgodne')
-       else:
+       #else:
            print('niezgodne naglowki w ofercie', tablica_ofert[b-1])
            break
-       try:
+       #try:
            driver.find_element_by_css_selector('div.col-sm-12.col-md-4.col-lg-3 > div > a').location_once_scrolled_into_view
            driver.execute_script("window.scrollBy(0,150);")
            driver.find_element_by_css_selector('div.col-sm-12.col-md-4.col-lg-3 > div > a').click()
