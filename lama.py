@@ -15,7 +15,7 @@ capabilities["browser"]="Chrome"
 driver = webdriver.Remote(desired_capabilities=capabilities,
                          command_executor=selenium_grid_url)
 
-driver.set_window_size(1920, 1080)
+#driver.set_window_size(1920, 1080)
 
 
 driver.get("https://www.lama-media.com/career")
