@@ -16,7 +16,7 @@ if not "Products" in driver.title:
     raise Exception("Unable to load Zzysh page!")
 
 #Zamkniecie popupa z jezykiem
-driver.find_element_by_css_selector('#redirect_popup > input.close_popup').click()
+#driver.find_element_by_css_selector('#redirect_popup > input.close_popup').click()
 
 import time
 time.sleep(3)
